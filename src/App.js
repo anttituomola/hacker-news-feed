@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import TopPosts from './components/TopPosts'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    topIds: [],
+    topPosts: []
+  }
+
+  componentDidMount() {
+    // Get the top 20 post ids
+    fetch("https://hacker-news.firebaseio.com/v0/beststories.json")
+      .then(res => res.json())
+      .then(json => {
+        let topIds = json.slice(0, 20)
+        this.setState({
+          topIds: topIds
+        })
+        return topIds
+      })
+
+      // Get the posts based on the ids
+      .then(ids => {
+        ids.forEach(id => {
+          fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+            .then(res => res.json())
+            .then(data => {
+              let thisPost = data
+              this.setState({
+                topPosts: [...this.state.topPosts, thisPost]
+              })
+            })
+        })
+      })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <TopPosts posts={this.state.topPosts}/>
+      </div>
+    )
+  }
 }
-
-export default App;
