@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Hacker News feed
+This is a small app that fetches top 20 posts from [Hacker News](https://news.ycombinator.com/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It's a project I built as part of my application to [Gofore](https://gofore.com/en/)
 
-## Available Scripts
+## The assignment
+You should get the 20 best stories from Hacker News and display them in a nicely organized list, providing the user with some extra usable and informative features that will be described here in the instructions.
+ 
+You may use any library you want too, as long as it makes sense in a React application.
+ 
+### Hacker News API
+ 
+To get the ids of the best stories in order from hacker news use: https://hacker-news.firebaseio.com/v0/beststories.json
+ 
+To get a single story by the id (123456 in the example) use: https://hacker-news.firebaseio.com/v0/item/123456.json
+ 
+To get details of a user by id (userid in the example) use: https://hacker-news.firebaseio.com/v0/user/userid.json
+ 
+You may use the query _?print=pretty_ at the end of the url to get a more readable JSON in case you use the browser to visualize the requests.
+ 
+More information on the API: https://github.com/HackerNews/API
+ 
+### Required features
+ 
+1. A view showing a list of the 20 best stories, including: title, creator, score, human readable created time, and a link to open that story in another tab.
+2. User can open a detailed view of the story's creator, which contains creator's id, human readable created time, karma (which is a kind of score), and number of submitted interactions.
+3. The UI should work nicely in any screen size.
+ 
+### Nice-to-have features
+ 
+1. It would be nice if the app keeps track of the information and minimizes API calls via state management or by library usage.
+2. It would be nice if the user would be able to sort the visible results by some of the properties, like score or creator, for example.
+3. It would be nice if the user would be able to filter the visible results by some of the properties, like minimum or maximum score, or even by selecting a user name in a list, or typing for keywords in the title, for example.
+ 
+### Avoid pitfalls
+ 
+- Do not overengineer just to impress us
+- It does not have to be the prettiest UI software
+ 
+### Evaluation criteria
+ 
+You will be evaluated by:
+ 
+- Achieving all of the required features
+- Explaining the reasoning behind your decisions
+- Code organization and readability
+- Usability and responsiveness
+- Bonus points from: Achieving some of the nice-to-have features
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# LIVE DEMO
+Comming...
