@@ -1,9 +1,18 @@
 .App {
   display: flex;
-  flex-flow: row wrap;
-  margin: 0 auto;
+  flex-flow: column wrap;
+  margin: 1em auto;
   align-items: center;
-  width: 800px;
+  width: 60%;
+  gap: 0.25em;
+}
+
+#results {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1em auto;
+  align-items: center;
+  width: 60%;
   gap: 0.25em;
 }
 
@@ -13,7 +22,8 @@
   padding: 1em;
   border: 1px solid grey;
   border-radius: 1em;
-  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  padding: 1em;
 }
 
 .hideModal {
