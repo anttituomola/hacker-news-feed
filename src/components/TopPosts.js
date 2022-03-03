@@ -3,7 +3,8 @@ import StoryCard from "./StoryCard"
 
 export default class TopPosts extends React.Component{
     state = {
-        sortBy: ""
+        sortBy: "",
+        filterBy: 0
     }
 
     sort = (event) => {
@@ -12,27 +13,45 @@ export default class TopPosts extends React.Component{
         })
     }
 
+    filter = (event) => {
+        this.setState({
+            filterBy: event.target.value
+        })
+    }
+
     render() {
         let sortedPosts = []
         let sorter = this.state.sortBy
+
+        // Sorting strings
         if (sorter === "by") {
             sortedPosts = [].concat(this.props.posts).sort((a,b) => a[sorter].localeCompare(b[sorter]))
+        
+        // Sorting numbers
         } else {
             sortedPosts = [].concat(this.props.posts).sort((a,b) => a[sorter] < b[sorter] ? 1 : -1)
         }
 
-
         let posts = sortedPosts.map(el => {
             return <StoryCard post={el} key={el.id}/>
         })
+
+        // Filter
+        if (this.state.filterBy) {
+             posts = posts.filter((post) => {
+                return post.props.post.score > this.state.filterBy
+                })
+        }
+
         return <>
         <div id="sort" onChange={this.sort}>
-            <input type="radio" value="by" name="sort" /> By author
-            <input type="radio" value="time" name="sort" /> By date
-            <input type="radio" value="score" name="sort" /> By score
+            SORT BY
+            <input type="radio" value="by" name="sort" /> author
+            <input type="radio" value="time" name="sort" /> date
+            <input type="radio" value="score" name="sort" /> score
         </div>
         <div id="filter">
-            
+            <input type="number" onChange={this.filter}/> Minimum score
         </div>
         <div id="results">{posts}</div>
         </>
