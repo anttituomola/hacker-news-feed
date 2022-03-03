@@ -4,7 +4,8 @@ import StoryCard from "./StoryCard"
 export default class TopPosts extends React.Component{
     state = {
         sortBy: "",
-        filterBy: 0
+        filterBy: 0,
+        searchBy: ""
     }
 
     sort = (event) => {
@@ -16,6 +17,12 @@ export default class TopPosts extends React.Component{
     filter = (event) => {
         this.setState({
             filterBy: event.target.value
+        })
+    }
+
+    search = (event) => {
+        this.setState({
+            searchBy: event.target.value
         })
     }
 
@@ -35,12 +42,17 @@ export default class TopPosts extends React.Component{
         let posts = sortedPosts.map(el => {
             return <StoryCard post={el} key={el.id}/>
         })
-
+console.log(posts)
         // Filter
         if (this.state.filterBy) {
              posts = posts.filter((post) => {
                 return post.props.post.score > this.state.filterBy
                 })
+        }
+
+        // Search
+        if (this.state.searchBy) {
+            posts = posts.filter(post => post.props.post.title.toLowerCase().indexOf(this.state.searchBy.toLowerCase()) !== -1 )
         }
 
         return <>
@@ -51,7 +63,10 @@ export default class TopPosts extends React.Component{
             <input type="radio" value="score" name="sort" /> score
         </div>
         <div id="filter">
-            <input type="number" onChange={this.filter}/> Minimum score
+            <input type="number" onChange={this.filter} /> Minimum score
+        </div>
+        <div id="search">
+            <input type="text" onChange={this.search} /> Search for title
         </div>
         <div id="results">{posts}</div>
         </>

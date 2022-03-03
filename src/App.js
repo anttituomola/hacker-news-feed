@@ -38,6 +38,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <h1>Hacker News</h1>
         <TopPosts posts={this.state.topPosts}/>
       </div>
     )
