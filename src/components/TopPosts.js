@@ -42,7 +42,7 @@ export default class TopPosts extends React.Component{
         let posts = sortedPosts.map(el => {
             return <StoryCard post={el} key={el.id}/>
         })
-console.log(posts)
+
         // Filter
         if (this.state.filterBy) {
              posts = posts.filter((post) => {

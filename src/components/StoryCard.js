@@ -2,7 +2,7 @@ import React from "react"
 import dayjs from "dayjs"
 import Modal from "./Modal"
 
-export default class StoryCard extends React.Component{
+export default class StoryCard extends React.Component {
     state = {
         showModal: false,
         authorData: {
@@ -12,6 +12,7 @@ export default class StoryCard extends React.Component{
             submittedInteractions: Number
         }
     }
+
     componentDidMount = () => {
         let post = this.props.post
         fetch(`https://hacker-news.firebaseio.com/v0/user/${post.by}.json`)
@@ -39,17 +40,17 @@ export default class StoryCard extends React.Component{
             showModal: false
         })
     }
-    
+
     render() {
         let post = this.props.post
 
         return <div className="storyCard">
-            <Modal show={this.state.showModal} hideModal={this.hideModal} authorData={this.state.authorData} />      
+            <Modal show={this.state.showModal} hideModal={this.hideModal} authorData={this.state.authorData} />
             <h3>{post.title}</h3>
             <p onClick={this.showModal} className="authorLink">by {post.by}</p>
             <p>Score: {post.score}</p>
             <p>Created at: {dayjs.unix(post.time).format("DD.MM.YYYY")}</p>
-            <p>Read more: <a href={post.url}>{post.url}</a></p>
+            <p>Read more: <a href={post.url} target="_blank">{post.url}</a></p>
         </div>
     }
 }

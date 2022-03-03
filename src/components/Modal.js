@@ -2,7 +2,7 @@ import React from "react"
 
 export default class Modal extends React.Component{
     render() {
-        return <div className={this.props.show ? "showModal" : "hideModal"}>
+        return <div className={this.props.show ? "showModal" : "hideModal"} >
             <section className="mainModal">
                 <h1 className="closeWindow" onClick={this.props.hideModal}>X</h1>
                 <h1>{this.props.authorData.id}</h1>
