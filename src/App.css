@@ -3,7 +3,7 @@
   flex-flow: column wrap;
   margin: 1em auto;
   align-items: center;
-  width: 60%;
+  width: 80%;
   gap: 0.25em;
 }
 
@@ -12,18 +12,19 @@
   flex-flow: row wrap;
   margin: 1em auto;
   align-items: center;
-  width: 60%;
+  width: 80%;
+  justify-content: center;
   gap: 0.25em;
 }
 
 .storyCard {
-  width: 280px;
-  height: 350px;
+  width: 25%;
+  height: fit-content;
+  min-height: 350px;
   padding: 1em;
   border: 1px solid grey;
   border-radius: 1em;
   overflow-wrap: break-word;
-  padding: 1em;
 }
 
 .hideModal {
@@ -60,4 +61,9 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  #results {flex-direction: column; width: 80%; margin-left: 0;}
+  .storyCard {width: 100%;}
 }
