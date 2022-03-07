@@ -50,7 +50,7 @@ export default class StoryCard extends React.Component {
             <p onClick={this.showModal} className="authorLink">by {post.by}</p>
             <p>Score: {post.score}</p>
             <p>Created at: {dayjs.unix(post.time).format("DD.MM.YYYY")}</p>
-            <p>Read more: <a href={post.url} target="_blank">{post.url}</a></p>
+            <p>Read more: <a href={post.url} target="_blank" rel="noreferrer">{post.url}</a></p>
         </div>
     }
 }

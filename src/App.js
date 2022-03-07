@@ -1,6 +1,6 @@
-import './App.css'
-import React from 'react'
-import TopPosts from './components/TopPosts'
+import "./App.css"
+import React from "react"
+import TopPosts from "./components/TopPosts"
 
 export default class App extends React.Component {
   state = {
