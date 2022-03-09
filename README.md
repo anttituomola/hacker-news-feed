@@ -48,4 +48,4 @@ You will be evaluated by:
 - Bonus points from: Achieving some of the nice-to-have features
 
 # LIVE DEMO
-https://anttituomola.fi/hacker-news/build/
+https://anttituomola.fi/hacker-news/
